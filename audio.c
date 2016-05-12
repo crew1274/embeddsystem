@@ -89,7 +89,7 @@ Void *audioThrFxn(Void *arg)
     }
 
     /* MMN Blank : Signal that initialization is done and wait for other threads */
-    Rendezvous_meet(envp->);
+    Rendezvous_meet(envp->hRendezvousInit);
 
     /* MMN Blank : Prime the file loader */
     Loader_prime(hLoader, &hInBuf);
@@ -182,7 +182,7 @@ cleanup:
     }
 
     if (hAd1) {
-        Adec_delete(hAd1);
+        Adec1_delete(hAd1)
     }
 
     if (hSound) {
