@@ -67,7 +67,7 @@ Void *audioThrFxn(Void *arg)
     }
 
     /* MMN Blank : Create an output buffer for decoded data */
-    hOutBuf = Buffer_create(Adec1_getOutBufSize((hAd1), &bAttrs);
+    hOutBuf = Buffer_create(Adec1_getOutBufSize(hAd1), &bAttrs);
 
     if (hOutBuf == NULL) {
         ERR("Failed to allocate output buffer\n");
@@ -178,11 +178,11 @@ cleanup:
 
     /* MMN Blank : Clean up the thread before exiting */
     if (hLoader) {
-        Loader.delete(hLoader);
+		Loader_delete(hLoader);
     }
 
     if (hAd1) {
-        Adec1_delete(hAd1)
+        Adec1_delete(hAd1);
     }
 
     if (hSound) {
@@ -194,7 +194,7 @@ cleanup:
     }
 
     if (hEngine) {
-        Engine_delete(hEngine);
+        Engine_close(hEngine);
     }
 
     return status;
